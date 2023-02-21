@@ -89,3 +89,21 @@ INSERT INTO personel VALUES
 ('Veysel','ERTÜZÜN','E','1980.07.03',3,'2002.07.18',4,3,35,3100,300),
 ('Yakup','GÖKÇE','E','1975.06.18',2,'2002.03.25',4,3,35,3100,450),
 ('Zeliha','CANİŞ','K','1978.03.03',5,'2005.08.13',1,3,40,2500,500);
+
+CREATE TABLE cocuk (
+cocuk_no INT IDENTITY(1,1) PRIMARY KEY,
+ad VARCHAR(25) NOT NULL, 
+soyad VARCHAR(25) NOT NULL,
+cinsiyet CHAR(1),
+dogum_tarihi DATE UNIQUE NOT NULL,
+dogu_yeri INT NOT NULL REFERENCES ilce(ILCEID),
+personel_no INT NOT NULL REFERENCES personel(personel_no)
+);
+
+INSERT INTO cocuk VALUES
+('Emin','ESMER','E','2016.05.21',5,6),
+('Selen','BUZDAĞ','K','2015.09.11',1,17),
+('Akif','ÇAKIR','E','2018.01.05',1,19),
+('Halide','ESMER','K','2017.12.10',8,6),
+('Jülide','BUZDAĞ','K','2016.03.03',6,17),
+('Elif','BUZDAĞ','K','2013.11.11',2,17);
